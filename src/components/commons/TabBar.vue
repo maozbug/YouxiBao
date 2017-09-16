@@ -13,7 +13,7 @@ export default{
 		return{
 			TabbarList:[
 				{
-					path:'/myprofile',
+					path:'/home',
 					name:'我的'
 				},
 				{

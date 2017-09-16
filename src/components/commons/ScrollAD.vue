@@ -1,6 +1,6 @@
 <template>
 	<div id="scrollAd">
-		<slider animation="fade" style="height:200px;">
+		<slider animation="fade" style="height:100%;">
 		  <slider-item v-for="(item, index) in adArr" :key="index">
 		    <img :src='item.img' alt="">
 		    <span>{{item.title}}</span>
@@ -21,7 +21,7 @@ export default{
 		this.$http.get(window.apiAddress+'/scroll').then((response)=>{
 			response=response.data;
 			_this.adArr=response.data.lunbo;
-			console.log(_this.adArr);
+			//console.log(_this.adArr);
 		})
 	},
 	components:{
@@ -32,15 +32,18 @@ export default{
 </script>
 <style lang="scss"> 
 	#scrollAd{
-		height:200px;
 		width:100%;
-		background:#8CEDF4;
+		height:180px;
 		span{
-			position:fixed;
+			position:absolute;
 			bottom:0;
 			background:rgba(225,225,225,0);
 			color:white;
 			width:100%;
+		}
+		img{
+			width:100%;
+			height:180px;
 		}
 	}
 </style>
