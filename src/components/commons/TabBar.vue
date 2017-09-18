@@ -27,6 +27,7 @@ export default{
 				{
 					path:'/message',
 					name:'资讯'
+					//redirect: 'http://m.18touch.com/'
 				}
 			]
 		}

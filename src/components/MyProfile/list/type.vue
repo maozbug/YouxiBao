@@ -3,7 +3,7 @@
  		<div class="type">
  			<div class="title">角色扮演<span>查看更多></span></div>
  			<ul>
- 				<li v-for="item in type1" v-bind:style="{width:w/3}">
+ 				<li v-for="(item,index) in type1" v-if="index<6" v-bind:style="{width:w/3}">
  					<img :src='item.img' alt="">
  					<span>{{item.appname}}</span>
  					<button>进入</button>
@@ -13,7 +13,7 @@
  		<div class="type">
  			<div class="title">卡牌手游<span>查看更多></span></div>
  			<ul>
- 				<li v-for="item in type2" v-bind:style="{width:w/3}">
+ 				<li v-for="(item,index) in type2" v-if="index<6" v-bind:style="{width:w/3}">
  					<img :src='item.img' alt="">
  					<span>{{item.appname}}</span>
  					<button>进入</button>
@@ -23,7 +23,7 @@
  		<div class="type">
  			<div class="title">动作冒险<span>查看更多></span></div>
  			<ul>
- 				<li v-for="item in type3" v-bind:style="{width:w/3}">
+ 				<li v-for="(item,index) in type3" v-if="index<6" v-bind:style="{width:w/3}">
  					<img :src='item.img' alt="">
  					<span>{{item.appname}}</span>
  					<button>进入</button>
@@ -33,7 +33,7 @@
  		<div class="type">
  			<div class="title">塔防策略<span>查看更多></span></div>
  			<ul>
- 				<li v-for="item in type4" v-bind:style="{width:w/3}">
+ 				<li v-for="(item,index) in type4" v-if="index<6" v-bind:style="{width:w/3}">
  					<img :src='item.img' alt="">
  					<span>{{item.appname}}</span>
  					<button>进入</button>
@@ -90,12 +90,14 @@
  <style lang="scss">
  	#types{
  		.type{
+ 			overflow:hidden;
  			ul{
  				width:100%;
  				display:flex;
 				flex-direction:row;
 				margin:5px 0;
- 				li{
+				overflow-x:scroll;
+ 				li{ 
  					width:33.3%;
 					display: flex;
 					flex-direction: column;
