@@ -1,0 +1,59 @@
+<template>
+	<div id="head">
+		<div>
+			<img src="../../assets/icon/设置.png" alt="">
+		</div>
+		<div class="title"><span>{{title}}</span></div>
+		<div>
+			<img class="search" src="../../assets/icon/搜索.png" alt="">
+		</div>
+	</div>
+</template>
+<script>
+export default{
+	data(){
+		return{
+
+		}
+	},
+	computed: {
+		title(){
+			if(this.$route.query.title){
+				return this.$route.query.title
+			}else{
+				 return '攻略宝'
+			}
+		}
+	}
+}
+</script>
+<style lang="scss">
+	#head{
+		position:fixed;
+		top:0;
+		left:0;
+		right:0;
+		z-index:2;
+		height:50px;
+		background:#21A721;
+		width:100%;
+		display:flex;
+		div{
+			flex:1;
+			padding:10px;
+			img{
+				height:30px;
+			}
+			img.search{
+				float:right;
+			}
+		}
+		.title{
+			line-height:50px;
+			text-align:center;
+			color:white;
+			font-size:18px;
+			padding:0;
+		}
+	}
+</style>

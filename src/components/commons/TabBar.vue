@@ -4,6 +4,7 @@
 			<li v-for="item in TabbarList" @click="pushTo(item.path)">
 				{{item.name}}
 			</li>
+			<li @click="pushgo()">资讯</li>
 		</ul>
 	</div>
 </template>
@@ -13,28 +14,31 @@ export default{
 		return{
 			TabbarList:[
 				{
-					path:'/home',
+					path:'/home?title=超好玩助手',
 					name:'我的'
 				},
 				{
-					path:'/category',
+					path:'/category?title=助手分类',
 					name:'分类'
 				},
 				{
-					path:'/ranking',
+					path:'/ranking?title=助手排行',
 					name:'排行'
 				},
-				{
-					path:'/message',
-					name:'资讯'
-					//redirect: 'http://m.18touch.com/'
-				}
+				// {
+				// 	path:'/message',
+				// 	name:'资讯'
+				// 	//redirect: 'http://m.18touch.com/'
+				// }
 			]
 		}
 	},
 	methods:{
 		pushTo(path){
 			this.$router.push(path);
+		},
+		pushgo(){
+			window.location.href ='http://m.18touch.com/';
 		}
 	}
 }

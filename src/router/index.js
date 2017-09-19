@@ -6,6 +6,7 @@ Vue.use(Router)
 
 import Home from '@//components/MyProfile/Home'
 import Category from '@//components/Category/category'
+import TypeView from '@//components/Category/TypeView'
 import Ranking from '@//components/Ranking/Ranking'
 import tuijian from '@//components/Ranking/tuijian/tuijian'
 import news from '@//components/Ranking/new/news'
@@ -23,6 +24,10 @@ export default new Router({
 	  	{
 	  		path:'/category',
 	    	component:Category
+	  	},
+	  	{
+	  		path:'/TypeView',
+	    	component:TypeView
 	  	},
 	  	{
 	  		path:'/ranking',

@@ -3,20 +3,22 @@
 		<div class="mycfg">
 			<div class="title"><span>▍</span>我的助手</div>
 			<ul>
-				<li v-for="item in mycfg">
+				<li v-for="item in mycfg" @click="pushto(item.url)">
 					<img :src='item.img' alt="">
 					<span>{{item.appname}}</span>
 				</li>
-				<li class="add">
-					<div>+</div>
-					<span>添加</span>
-				</li>
+				<router-link to="/ranking">
+					<li class="add">
+						<div>+</div>
+						<span>添加</span>
+					</li>
+				</router-link>
 			</ul>
 		</div>
 		<div class="tuis">
 			<div class="title"><span>▍</span>精品推荐</div>
 			<ul>
-				<li v-for="item in tuis">
+				<li v-for="item in tuis" @click="pushto(item.url)">
 					<img :src='item.img' alt="">
 					<span>{{item.appname}}</span>
 				</li>
@@ -26,7 +28,7 @@
 		<div class="news">
 			<div class="title"><span>▍</span>最新上架</div>
 			<ul>
-				<li v-for="item in news">
+				<li v-for="item in news" @click="pushto(item.url)">
 					<img :src='item.img' alt="">
 					<span>{{item.appname}}</span>
 				</li>				
@@ -53,6 +55,11 @@ export default{
 			_this.tuis=response.data.tuis;
 			// console.log(_this.adArr);
 		})
+	},
+	methods:{
+		pushto(url){
+			window.location.href = url;
+		}
 	}
 }
 </script>
@@ -76,16 +83,29 @@ export default{
 			flex-wrap: wrap;
 			margin:5px 0;
 			padding:8px;
-			.add{
-				div{
-					height:130px;
-					line-height:130px;
-					font-size:120px;
-					color:#CFCCCC;
-					text-align:center;
-					background:#E4E2E2;
+			a{
+				text-decoration:none;
+				display:block;
+				width:30%;
+				li.add{
+					width:100%;
+					display: flex;
+					flex-direction: column;
+					padding:5px;
+					border:1px solid #DBDBDB;
+					margin-right:3.3%;
+					margin-bottom:5px;
+					div{
+						height:130px;
+						line-height:130px;
+						font-size:120px;
+						color:#CFCCCC;
+						text-align:center;
+						background:#E4E2E2;
+					}
 				}
 			}
+
 			li{
 				width:30%;
 				display: flex;

@@ -30,7 +30,7 @@ export default{
 	},
 	created(){
 		var _this=this
-		this.$http.get(window.apiAddress+'/news?limit=10').then((response)=>{
+		this.$http.get(window.apiAddress+'/type?type=&limit=10').then((response)=>{
 			response=response.data;
 			//console.log(response);
 			_this.news=response.data;
@@ -40,6 +40,7 @@ export default{
 </script>
 <style lang="scss">
 	#news{
+		background:white;
 		ul{
 			width:100%;
 			li{
@@ -64,10 +65,9 @@ export default{
 					flex-direction:column;
 					div.top{
 						padding:5px;
-						margin:5px 0;
 						h3{
 						display:inline-block;
-						font-size:18px;
+						font-size:16px;
 						font-weight:bold;
 						}
 						span{
@@ -75,9 +75,9 @@ export default{
 							right:10px;
 							background:#F7830C;
 							color:white;
-							font-size:14px;
-							padding:5px 10px;
-							border-radius:6px;
+							font-size:13px;
+							padding:3px 10px;
+							border-radius:3px;
 						}
 					}
 					p{
@@ -87,6 +87,7 @@ export default{
 						-webkit-line-clamp: 3;
 						-webkit-box-orient: vertical;
  						margin:5px;
+ 						font-size:14px;
 					}
 					div.bottom{
 						position:relative;

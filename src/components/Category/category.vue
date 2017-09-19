@@ -2,7 +2,7 @@
 	<div id="category">
 		<ScrollAD></ScrollAD>
 		<ul>
-			<li v-for="item in types">
+			<li v-for="(item,index) in types"  @click="LookMore(index+1)">
 				{{item.name}}
 			</li>
 		</ul>
@@ -24,7 +24,12 @@ export default{
 			//console.log(_this.adArr);
 		})
 	},
-	components:{ScrollAD}
+	components:{ScrollAD},
+	methods:{
+		LookMore(num){
+			this.$router.push('/TypeView?type='+num);
+		}
+	}
 }
 </script>
 <style lang="scss">

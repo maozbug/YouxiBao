@@ -12,8 +12,8 @@ export default{
 	data(){
 		return{
 			tleList:{
-				"最新":'/ranking/new',
-				"推荐":'/ranking/tuijian'
+				"最新":'/ranking/new?title=助手排行',
+				"推荐":'/ranking/tuijian?title=助手排行'
 			},
 			selectedIndex:{
 				selectedIndex:''
@@ -35,14 +35,14 @@ export default{
 		width:100%;
 		display:flex;
 		.rank{
-			width:30%;
+			width:40%;
 			margin:5px auto;
 			display:flex;
 			// border:1px solid #dbdbdb;
 			// border-radius:10px;
 			li{
 				flex:1;
-				padding:5px 10px;
+				padding:2px 10px;
 				text-align:center;
 				border:1px solid #dbdbdb;
 			}

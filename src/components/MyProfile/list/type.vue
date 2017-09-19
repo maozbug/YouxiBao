@@ -1,9 +1,9 @@
  <template>
  	<div id="types">
  		<div class="type">
- 			<div class="title">角色扮演<span>查看更多></span></div>
+ 			<div class="title">角色扮演<span @click="LookMore(1)">查看更多></span></div>
  			<ul>
- 				<li v-for="(item,index) in type1" v-if="index<6" v-bind:style="{width:w/3}">
+ 				<li v-for="(item,index) in type1" v-if="index<6" v-bind:style="{width:w/3}" @click="pushto(item.url)">
  					<img :src='item.img' alt="">
  					<span>{{item.appname}}</span>
  					<button>进入</button>
@@ -11,9 +11,9 @@
  			</ul>
  		</div>
  		<div class="type">
- 			<div class="title">卡牌手游<span>查看更多></span></div>
+ 			<div class="title">卡牌手游<span  @click="LookMore(2)">查看更多></span></div>
  			<ul>
- 				<li v-for="(item,index) in type2" v-if="index<6" v-bind:style="{width:w/3}">
+ 				<li v-for="(item,index) in type2" v-if="index<6" v-bind:style="{width:w/3}" @click="pushto(item.url)">
  					<img :src='item.img' alt="">
  					<span>{{item.appname}}</span>
  					<button>进入</button>
@@ -21,9 +21,9 @@
  			</ul>
  		</div>
  		<div class="type">
- 			<div class="title">动作冒险<span>查看更多></span></div>
+ 			<div class="title">动作冒险<span @click="LookMore(3)">查看更多></span></div>
  			<ul>
- 				<li v-for="(item,index) in type3" v-if="index<6" v-bind:style="{width:w/3}">
+ 				<li v-for="(item,index) in type3" v-if="index<6" v-bind:style="{width:w/3}" @click="pushto(item.url)">
  					<img :src='item.img' alt="">
  					<span>{{item.appname}}</span>
  					<button>进入</button>
@@ -31,9 +31,9 @@
  			</ul>
  		</div>
  		<div class="type">
- 			<div class="title">塔防策略<span>查看更多></span></div>
+ 			<div class="title">塔防策略<span  @click="LookMore(4)">查看更多></span></div>
  			<ul>
- 				<li v-for="(item,index) in type4" v-if="index<6" v-bind:style="{width:w/3}">
+ 				<li v-for="(item,index) in type4" v-if="index<6" v-bind:style="{width:w/3}" @click="pushto(item.url)">
  					<img :src='item.img' alt="">
  					<span>{{item.appname}}</span>
  					<button>进入</button>
@@ -65,26 +65,31 @@
 			response=response.data;
 			//console.log(response);
 			_this.type2=response.data;
-			console.log(_this.type2)
+			//console.log(_this.type2)
 		})
 		this.$http.get(window.apiAddress+'/type?type='+3).then((response)=>{
 			response=response.data;
 			//console.log(response);
 			_this.type3=response.data;
-			console.log(_this.type3)
+			//console.log(_this.type3)
 		})
 		this.$http.get(window.apiAddress+'/type?type='+4).then((response)=>{
 			response=response.data;
 			//console.log(response);
 			_this.type4=response.data;
-			console.log(_this.type4)
+			//console.log(_this.type4)
 		})
 		this.w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
  		
  	},
- 	methods:{
- 		
- 	}
+	methods:{
+		pushto(url){
+			window.location.href = url;
+		},
+		LookMore(num){
+			this.$router.push('/TypeView?type='+num);
+		}
+	}
  }
  </script>	
  <style lang="scss">

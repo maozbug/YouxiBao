@@ -1,8 +1,8 @@
 <template>
 	<div id="scrollAd">
 		<slider animation="fade" style="height:100%;">
-		  <slider-item v-for="(item, index) in adArr" :key="index">
-		    <img :src='item.img' alt="">
+		  <slider-item v-for="(item, index) in adArr" :key="index" @>
+		    <img :src='item.img' alt="" @click="pushto(item.param)">
 		    <span>{{item.title}}</span>
 		  </slider-item>
 		</slider>
@@ -27,6 +27,12 @@ export default{
 	components:{
 		Slider,
     	SliderItem
+	},
+	methods:{
+		pushto(val){
+			//alert();
+			window.location.href ='http://mhelper.18touch.com/'+val ;
+		}
 	}
 }
 </script>
@@ -34,6 +40,7 @@ export default{
 	#scrollAd{
 		width:100%;
 		height:180px;
+		position:reative;
 		span{
 			position:absolute;
 			bottom:0;

@@ -1,7 +1,7 @@
 <template>
-	<div id="tuis">
+	<div id="typeview">
 		<ul>
-			<li v-for="item in tuis">
+			<li v-for="item in views">
 				<div class="left">
 					<img :src='item.img' alt="">
 					<span>{{item.appname}}</span>
@@ -25,21 +25,21 @@
 export default{
 	data(){
 		return{
-			tuis:[]
+			views:[]
 		}
 	},
 	created(){
 		var _this=this
-		this.$http.get(window.apiAddress+'/tuis').then((response)=>{
+		this.$http.get(window.apiAddress+'/type?type='+ this.$route.query.type+'&limit=12').then((response)=>{
 			response=response.data;
 			//console.log(response);
-			_this.tuis=response.data;
+			_this.views=response.data;
 		})
 	}
 }
 </script>
 <style lang="scss">
-	#tuis{
+	#typeview{
 		background:white;
 		ul{
 			width:100%;

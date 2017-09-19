@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <TOU></TOU>
     <!-- <ScrollAD></ScrollAD> -->
     <keep-alive>
       <router-view></router-view>
@@ -11,9 +12,10 @@
 <script>
 import resetCss from '@/assets/reset.css'
 import Tabbar from '@/components/commons/Tabbar'
+import TOU from '@/components/commons/header'
 export default {
   name: 'app',
-  components:{Tabbar},
+  components:{Tabbar,TOU},
   // watch:{
   //   $route(to,from){
   //     console.log(to);
@@ -29,6 +31,7 @@ export default {
 <style>
 #app {
   padding-bottom: 64px;
+  padding-top: 50px;
   /* font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

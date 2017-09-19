@@ -18,5 +18,7 @@ export default{
 }
 </script>
 <style lang="scss">
-	
+	#rank{
+		background:#ECF8E8;
+	}
 </style>
