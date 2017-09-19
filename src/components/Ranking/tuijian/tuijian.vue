@@ -52,11 +52,18 @@ export default{
 					width:25%;
 					border:1px solid #dbdbdb;
 					padding:5px;
+					img{
+						min-height:90px;
+						min-width:80px;
+					}
 					span{
-						display:block;
 						font-size:12px;
 						text-align:center;
-						// margin:0 auto;
+						overflow : hidden;
+						text-overflow: ellipsis;
+						display: -webkit-box;
+						-webkit-line-clamp: 1;
+						-webkit-box-orient: vertical;
 					}
 				}
 				.right{

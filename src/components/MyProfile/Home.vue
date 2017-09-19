@@ -14,5 +14,7 @@ export default{
 }
 </script>
 <style lang="scss">
-	
+	#home{
+		margin-bottom:64px;
+	}
 </style>

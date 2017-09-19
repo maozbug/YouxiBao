@@ -30,7 +30,7 @@ export default {
 
 <style>
 #app {
-  padding-bottom: 64px;
+  /* padding-bottom: 64px; */
   padding-top: 50px;
   /* font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -1,7 +1,7 @@
  <template>
  	<div id="types">
  		<div class="type">
- 			<div class="title">角色扮演<span @click="LookMore(1)">查看更多></span></div>
+ 			<div class="title">角色扮演<span @click="LookMore(1,'角色扮演')">查看更多></span></div>
  			<ul>
  				<li v-for="(item,index) in type1" v-if="index<6" v-bind:style="{width:w/3}" @click="pushto(item.url)">
  					<img :src='item.img' alt="">
@@ -11,7 +11,7 @@
  			</ul>
  		</div>
  		<div class="type">
- 			<div class="title">卡牌手游<span  @click="LookMore(2)">查看更多></span></div>
+ 			<div class="title">卡牌手游<span  @click="LookMore(2,'卡牌手游')">查看更多></span></div>
  			<ul>
  				<li v-for="(item,index) in type2" v-if="index<6" v-bind:style="{width:w/3}" @click="pushto(item.url)">
  					<img :src='item.img' alt="">
@@ -21,7 +21,7 @@
  			</ul>
  		</div>
  		<div class="type">
- 			<div class="title">动作冒险<span @click="LookMore(3)">查看更多></span></div>
+ 			<div class="title">动作冒险<span @click="LookMore(3,'动作冒险')">查看更多></span></div>
  			<ul>
  				<li v-for="(item,index) in type3" v-if="index<6" v-bind:style="{width:w/3}" @click="pushto(item.url)">
  					<img :src='item.img' alt="">
@@ -31,7 +31,7 @@
  			</ul>
  		</div>
  		<div class="type">
- 			<div class="title">塔防策略<span  @click="LookMore(4)">查看更多></span></div>
+ 			<div class="title">塔防策略<span  @click="LookMore(4,'塔防策略')">查看更多></span></div>
  			<ul>
  				<li v-for="(item,index) in type4" v-if="index<6" v-bind:style="{width:w/3}" @click="pushto(item.url)">
  					<img :src='item.img' alt="">
@@ -86,8 +86,9 @@
 		pushto(url){
 			window.location.href = url;
 		},
-		LookMore(num){
-			this.$router.push('/TypeView?type='+num);
+		LookMore(num,title){
+			//alert(title);
+			this.$router.push('/TypeView?type='+num+'&title='+title);
 		}
 	}
  }

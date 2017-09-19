@@ -41,6 +41,7 @@ export default{
 <style lang="scss">
 	#typeview{
 		background:white;
+		margin-bottom:64px;
 		ul{
 			width:100%;
 			li{
@@ -52,10 +53,19 @@ export default{
 					width:25%;
 					border:1px solid #dbdbdb;
 					padding:5px;
+					img{
+						min-height:90px;
+						min-width:80px;
+					}
 					span{
-						display:block;
+						//display:block;
 						font-size:12px;
 						text-align:center;
+						overflow : hidden;
+						text-overflow: ellipsis;
+						display: -webkit-box;
+						-webkit-line-clamp: 1;
+						-webkit-box-orient: vertical;
 						// margin:0 auto;
 					}
 				}

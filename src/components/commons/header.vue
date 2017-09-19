@@ -1,11 +1,12 @@
 <template>
 	<div id="head">
 		<div>
-			<img src="../../assets/icon/设置.png" alt="">
+			<img v-if="!type" @click="Seting()" src="../../assets/icon/设置.png" alt="">
+			<img v-if="type" @click="back()" src="../../assets/icon/返回图标.png" alt="">
 		</div>
 		<div class="title"><span>{{title}}</span></div>
 		<div>
-			<img class="search" src="../../assets/icon/搜索.png" alt="">
+			<img v-if="!type" @click="Search()" class="search" src="../../assets/icon/搜索.png" alt="">
 		</div>
 	</div>
 </template>
@@ -23,7 +24,21 @@ export default{
 			}else{
 				 return '攻略宝'
 			}
+		},
+		type(){
+			return this.$route.query.type
 		}
+	},
+	methods:{
+		back(){
+			this.$router.back(-1)
+		},
+		Seting(){
+			this.$router.push('/seting?title=设置&type=a');
+		},
+		Search(){
+			this.$router.push('/search?title=搜索&type=a');
+		},
 	}
 }
 </script>

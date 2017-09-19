@@ -1,7 +1,7 @@
 <template>
 	<div id="paihang">
 		<ul class="rank">
-			<li v-for="(url,item) in tleList" @click="push(url,item)" :class="{active:selectedIndex==item}">
+			<li v-for="(url,item) in tleList" @click="push(url,item)" :class="{active:selectedIndex==item,'lastSelected':lastSelected==url}">
 				{{item}}
 			</li>
 		</ul>
@@ -24,7 +24,15 @@ export default{
 		push(url,item){
 			this.$router.push(url);
 			this.selectedIndex=item;
-				//this.$store.dispatch('select_Index',url)
+			this.$store.dispatch('select_Index',url);
+			
+		}
+	},
+	computed:{
+		lastSelected(){
+			//console.log(this.$store.getters.GET_SELECTED_INDEX)
+			return this.$store.getters.GET_SELECTED_INDEX;
+			//console.log(this.$store);
 		}
 	}
 
@@ -54,9 +62,10 @@ export default{
 				border-top-right-radius:8px;
 				border-bottom-right-radius:8px;
 			}
-			.active{
-				background:#33CA16;
-			}
 		}
+	}
+	.active,.lastSelected{
+		background:#33CA16;
+		color:white;
 	}
 </style>

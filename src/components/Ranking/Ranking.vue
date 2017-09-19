@@ -20,5 +20,6 @@ export default{
 <style lang="scss">
 	#rank{
 		background:#ECF8E8;
+		margin-bottom:64px;
 	}
 </style>

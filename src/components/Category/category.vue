@@ -34,6 +34,7 @@ export default{
 </script>
 <style lang="scss">
 	#category{
+		margin-bottom:64px;
 		ul{
 			display:flex;
 			flex-wrap:wrap;
