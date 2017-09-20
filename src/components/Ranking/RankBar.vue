@@ -1,7 +1,7 @@
 <template>
 	<div id="paihang">
 		<ul class="rank">
-			<li v-for="(url,item) in tleList" @click="push(url,item)" :class="{active:selectedIndex==item,'lastSelected':lastSelected==url}">
+			<li v-for="(url,item) in tleList" @click="push(url,item)" :class="{active:selectedIndex==item}">
 				{{item}}
 			</li>
 		</ul>
@@ -30,7 +30,7 @@ export default{
 	},
 	computed:{
 		lastSelected(){
-			//console.log(this.$store.getters.GET_SELECTED_INDEX)
+			console.log(this.$store)
 			return this.$store.getters.GET_SELECTED_INDEX;
 			//console.log(this.$store);
 		}

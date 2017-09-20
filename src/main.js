@@ -5,6 +5,9 @@ import App from './App'
 import router from './router'
 import axios from 'axios'
 import store from '../vuex/Store'
+import Icon from 'vue-svg-icon/Icon.vue';
+
+Vue.component('icon', Icon);
 Vue.config.productionTip = false
 Vue.prototype.$http = axios;
 

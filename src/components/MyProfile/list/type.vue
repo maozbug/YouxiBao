@@ -59,7 +59,7 @@
 			response=response.data;
 			//console.log(response);
 			_this.type1=response.data;
-			console.log(_this.type1)
+			//console.log(_this.type1)
 		})
 		this.$http.get(window.apiAddress+'/type?type='+2).then((response)=>{
 			response=response.data;

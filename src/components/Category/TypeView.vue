@@ -28,7 +28,7 @@ export default{
 			views:[]
 		}
 	},
-	created(){
+	activated(){
 		var _this=this
 		this.$http.get(window.apiAddress+'/type?type='+ this.$route.query.type+'&limit=12').then((response)=>{
 			response=response.data;
@@ -56,6 +56,8 @@ export default{
 					img{
 						min-height:90px;
 						min-width:80px;
+						max-height:100px;
+						max-width:80px;
 					}
 					span{
 						//display:block;
