@@ -3,7 +3,7 @@
 		<div class="mycfg">
 			<div class="title"><span>▍</span>我的助手</div>
 			<ul>
-				<li v-for="item in mycfg" @click="pushto(item.url)">
+				<li v-for="item in mycfg" @click="pushgo(item.url)">
 					<img :src='item.img' alt="">
 					<span>{{item.appname}}</span>
 				</li>
@@ -18,7 +18,7 @@
 		<div class="tuis">
 			<div class="title"><span>▍</span>精品推荐</div>
 			<ul>
-				<li v-for="item in tuis" @click="pushto(item.url)">
+				<li v-for="item in tuis" @click="pushto(item.id,item.appname)">
 					<img :src='item.img' alt="">
 					<span>{{item.appname}}</span>
 				</li>
@@ -28,7 +28,7 @@
 		<div class="news">
 			<div class="title"><span>▍</span>最新上架</div>
 			<ul>
-				<li v-for="item in news" @click="pushto(item.url)">
+				<li v-for="item in news" @click="pushto(item.id,item.appname)">
 					<img :src='item.img' alt="">
 					<span>{{item.appname}}</span>
 				</li>				
@@ -57,8 +57,12 @@ export default{
 		})
 	},
 	methods:{
-		pushto(url){
+		pushgo(url){
 			window.location.href = url;
+		},
+		pushto(id,title){
+			//window.location.href = url;
+			this.$router.push('/detial?id='+id+'&title='+title+'&type=b');
 		}
 	}
 }

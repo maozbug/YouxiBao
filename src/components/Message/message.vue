@@ -14,6 +14,7 @@
 					</div>
 				</div>
 			</li>
+			<div @click="more()" class="more">加载更多</div>
 		</ul>
 	</div>
 </template>
@@ -23,15 +24,18 @@ export default{
 	data(){
 		return{
 			message:[],
-			msgScroll:[]
+			msgScroll:[],
+			page:1
 		}
 	},
 	created(){
 		var _this=this
-		this.$http.get(window.apiAddress+'/message').then((response)=>{
-			response=response.data;
-			//console.log(response);
-			_this.message=response.newslist;
+		this.$http.get(window.apiAddress+'/message?page=1').then((response)=>{
+			response=response.data.newslist;
+			for(var item in response){
+			    _this.message.push(response[item]);
+			}
+			// _this.message=response.newslist;
 			console.log(_this.message)
 		})
 		this.$http.get(window.apiAddress+'/msgScroll').then((response)=>{
@@ -40,7 +44,27 @@ export default{
 			//console.log(_this.msgScroll);
 		})
 	},
-	components:{MsgScroll}
+	components:{MsgScroll},
+	methods:{
+		more(){
+			this.page++
+			var _this=this
+			this.$http.get(window.apiAddress+'/message?page='+this.page).then(function(response){
+				var response=response.data.newslist;
+				var message = [];
+			    for(var item in response){
+			        message.push(response[item]);
+			    }
+			    console.log(message)
+				for(var item of message){
+					_this.message.push(item);
+				}
+				console.log(_this.message)
+			}).catch(function(error){
+				console.log(error);
+			})
+		}
+	}
 }
 </script>
 <style lang="scss" scoped>
@@ -94,6 +118,11 @@ export default{
 					height:100px;
 					width:200px;
 				}
+			}
+			div.more{
+				padding:5px;
+				text-align:center;
+				color:#666666;
 			}
 		}
 	}

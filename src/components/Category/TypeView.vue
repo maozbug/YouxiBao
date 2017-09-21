@@ -1,7 +1,7 @@
 <template>
 	<div id="typeview">
 		<ul>
-			<li v-for="item in views">
+			<li v-for="item in views"  @click="pushto(item.id,item.appname)">
 				<div class="left">
 					<img :src='item.img' alt="">
 					<span>{{item.appname}}</span>
@@ -18,6 +18,9 @@
 					</div>
 				</div>
 			</li>
+			<div class="more" @click="more()">
+				加载更多
+			</div>
 		</ul>
 	</div>
 </template>
@@ -25,7 +28,8 @@
 export default{
 	data(){
 		return{
-			views:[]
+			views:[],
+			num:12
 		}
 	},
 	activated(){
@@ -34,14 +38,31 @@ export default{
 			response=response.data;
 			//console.log(response);
 			_this.views=response.data;
+			console.log(_this.views);
 		})
+	},
+	methods:{
+		pushto(id,title){
+			//window.location.href = url;
+			this.$router.push('/detial?id='+id+'&title='+title+'&type=b');
+		},
+		more(){
+			console.log(this.num);
+			this.num=this.num+12;
+			console.log(this.num);
+			var _this=this
+			this.$http.get(window.apiAddress+'/type?type='+ this.$route.query.type+'&limit='+this.num).then((response)=>{
+				response=response.data;
+				//console.log(response);
+				_this.views=response.data;
+			})
+		}
 	}
 }
 </script>
 <style lang="scss">
 	#typeview{
 		background:white;
-		margin-bottom:64px;
 		ul{
 			width:100%;
 			li{
@@ -118,6 +139,11 @@ export default{
 						}
 					}
 				}
+			}
+			div.more{
+				padding:5px;
+				text-align:center;
+				color:#666666;
 			}
 		}
 	}

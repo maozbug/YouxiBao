@@ -1,7 +1,7 @@
 <template>
 	<div id="tuis">
 		<ul>
-			<li v-for="item in tuis">
+			<li v-for="item in tuis" @click="pushto(item.id,item.appname)">
 				<div class="left">
 					<img :src='item.img' alt="">
 					<span>{{item.appname}}</span>
@@ -35,6 +35,12 @@ export default{
 			//console.log(response);
 			_this.tuis=response.data;
 		})
+	},
+	methods:{
+		pushto(id,title){
+			//window.location.href = url;
+			this.$router.push('/detial?id='+id+'&title='+title+'&type=b');
+		}
 	}
 }
 </script>

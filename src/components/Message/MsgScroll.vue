@@ -1,7 +1,7 @@
 <template>
 	<div id="MsgScroll">
 		<slider animation="fade" style="height:100%;">
-		  <slider-item v-for="item in msgScroll">
+		  <slider-item v-for="(item,index) in msgScroll" :key="index" @>
 		    <img :src='item.cover'>
 		    <span>{{item.title}}</span>
 		  </slider-item>

@@ -13,6 +13,7 @@ import news from '@//components/Ranking/new/news'
 import Message from '@//components/Message/message'
 import Seting from '@//components/commons/seting'
 import Search from '@//components/commons/search'
+import Detial from '@//components/Detial/Detial'
 export default new Router({
   	routes: [
     	{
@@ -61,6 +62,10 @@ export default new Router({
 	  	{
 	  		path:'/search',
 	    	component:Search
+	  	},
+	  	{
+	  		path:'/detial',
+	    	component:Detial
 	  	}
   	]
 })

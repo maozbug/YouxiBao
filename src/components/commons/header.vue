@@ -7,6 +7,7 @@
 		<div class="title"><span>{{title}}</span></div>
 		<div>
 			<img v-if="!type" @click="Search()" class="search" src="../../assets/icon/搜索.png" alt="">
+			<img v-if="type=='b'" @click="share()" class="icon" src="../../assets/icon/分享.png" alt="">
 		</div>
 	</div>
 </template>
@@ -39,6 +40,11 @@ export default{
 		Search(){
 			this.$router.push('/search?title=搜索&type=a');
 		},
+		share(){
+			var id=this.$route.query.id;
+			var title=this.$route.query.title;
+			this.$router.push('/detial?id='+id+'&title='+title+'&type=b&share=" "');
+		}
 	}
 }
 </script>
@@ -60,6 +66,9 @@ export default{
 				height:30px;
 			}
 			img.search{
+				float:right;
+			}
+			.icon{
 				float:right;
 			}
 		}

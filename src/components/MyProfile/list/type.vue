@@ -3,8 +3,8 @@
  		<div class="type">
  			<div class="title">角色扮演<span @click="LookMore(1,'角色扮演')">查看更多></span></div>
  			<ul>
- 				<li v-for="(item,index) in type1" v-if="index<6" v-bind:style="{width:w/3}" @click="pushto(item.url)">
- 					<img :src='item.img' alt="">
+ 				<li v-for="(item,index) in type1" v-if="index<6" @click="pushto(item.id,item.appname)">
+ 					<img v-bind:style="{'min-width':(w-60)/3+'px'}" :src='item.img' alt="">
  					<span>{{item.appname}}</span>
  					<button>进入</button>
  				</li>
@@ -13,8 +13,8 @@
  		<div class="type">
  			<div class="title">卡牌手游<span  @click="LookMore(2,'卡牌手游')">查看更多></span></div>
  			<ul>
- 				<li v-for="(item,index) in type2" v-if="index<6" v-bind:style="{width:w/3}" @click="pushto(item.url)">
- 					<img :src='item.img' alt="">
+ 				<li v-for="(item,index) in type2" v-if="index<6" @click="pushto(item.id,item.appname)">
+ 					<img v-bind:style="{'min-width':(w-60)/3+'px'}" :src='item.img' alt="">
  					<span>{{item.appname}}</span>
  					<button>进入</button>
  				</li>
@@ -23,8 +23,8 @@
  		<div class="type">
  			<div class="title">动作冒险<span @click="LookMore(3,'动作冒险')">查看更多></span></div>
  			<ul>
- 				<li v-for="(item,index) in type3" v-if="index<6" v-bind:style="{width:w/3}" @click="pushto(item.url)">
- 					<img :src='item.img' alt="">
+ 				<li v-for="(item,index) in type3" v-if="index<6" @click="pushto(item.id,item.appname)">
+ 					<img v-bind:style="{'min-width':(w-60)/3+'px'}" :src='item.img' alt="">
  					<span>{{item.appname}}</span>
  					<button>进入</button>
  				</li>
@@ -33,8 +33,8 @@
  		<div class="type">
  			<div class="title">塔防策略<span  @click="LookMore(4,'塔防策略')">查看更多></span></div>
  			<ul>
- 				<li v-for="(item,index) in type4" v-if="index<6" v-bind:style="{width:w/3}" @click="pushto(item.url)">
- 					<img :src='item.img' alt="">
+ 				<li v-for="(item,index) in type4" v-if="index<6" @click="pushto(item.id,item.appname)">
+ 					<img v-bind:style="{'min-width':(w-60)/3+'px'}" :src='item.img' alt="">
  					<span>{{item.appname}}</span>
  					<button>进入</button>
  				</li>
@@ -83,8 +83,9 @@
  		
  	},
 	methods:{
-		pushto(url){
-			window.location.href = url;
+		pushto(id,title){
+			//window.location.href = url;
+			this.$router.push('/detial?id='+id+'&title='+title+'&type=b');
 		},
 		LookMore(num,title){
 			//alert(title);
@@ -107,13 +108,13 @@
  					width:33.3%;
 					display: flex;
 					flex-direction: column;
-					padding:0 20px;
+					padding:0 10px;
 					margin-bottom:5px;
 					border-right:1px solid #DBDBDB;
 					img{
 						height:100px;
-						width:100px;
-						max-width:100px;
+						// width:100px;
+						// max-width:100px;
 						border-radius:10px;
 					}
 					span{

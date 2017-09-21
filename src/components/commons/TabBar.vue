@@ -1,5 +1,5 @@
 <template>
-	<div id="tabbar" v-if="title!=='设置'&&title!=='搜索'">
+	<div id="tabbar" v-if="!type">
 		<ul>
 			<li v-for="item in TabbarList" @click="pushTo(item.path,item.name)">
 				<div v-if="title==item.title">
@@ -78,6 +78,9 @@ export default{
 			}else{
 				 return '攻略宝'
 			}
+		},
+		type(){
+			return this.$route.query.type
 		},
 		lastSelected(){
 			//console.log(this.$store.getters.GET_SELECTED_INDEX)

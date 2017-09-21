@@ -1,7 +1,7 @@
 <template>
 	<div id="news">
 		<ul>
-			<li v-for="item in news">
+			<li v-for="item in news" @click="pushto(item.id,item.appname)">
 				<div class="left">
 					<img :src='item.img' alt="">
 					<span>{{item.appname}}</span>
@@ -18,6 +18,9 @@
 					</div>
 				</div>
 			</li>
+			<div class="more" @click="more()">
+				加载更多
+			</div>
 		</ul>
 	</div>
 </template>
@@ -25,7 +28,8 @@
 export default{
 	data(){
 		return{
-			news:[]
+			news:[],
+			num:10
 		}
 	},
 	created(){
@@ -35,6 +39,23 @@ export default{
 			//console.log(response);
 			_this.news=response.data;
 		})
+	},
+	methods:{
+		pushto(id,title){
+			//window.location.href = url;
+			this.$router.push('/detial?id='+id+'&title='+title+'&type=b');
+		},
+		more(){
+			//console.log(this.num);
+			this.num=this.num+10;
+			//console.log(this.num);
+			var _this=this
+			this.$http.get(window.apiAddress+'/type?type=&limit='+this.num).then((response)=>{
+				response=response.data;
+				//console.log(response);
+				_this.news=response.data;
+			})
+		}
 	}
 }
 </script>
@@ -113,6 +134,11 @@ export default{
 						}
 					}
 				}
+			}
+			div.more{
+				padding:5px;
+				text-align:center;
+				color:#666666;
 			}
 		}
 	}
