@@ -14,7 +14,14 @@ export default{
 			
 		}
 	},
-	components:{RankBar}
+	components:{RankBar},
+	activated(){
+		// console.log(this.$store.getters);
+		// console.log("结果 ");
+		console.log(this.$store.getters.GET_SELECTED_INDEX);
+		this.$router.push(this.$store.getters.GET_SELECTED_INDEX);
+		// console.log(this.$router)
+	}
 }
 </script>
 <style lang="scss">

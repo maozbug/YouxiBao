@@ -113,8 +113,6 @@
 					border-right:1px solid #DBDBDB;
 					img{
 						height:100px;
-						// width:100px;
-						// max-width:100px;
 						border-radius:10px;
 					}
 					span{

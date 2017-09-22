@@ -1,5 +1,5 @@
 <template>
-	<div id="head">
+	<div id="head" v-if="paths!='/detial'">
 		<div>
 			<img v-if="!type" @click="Seting()" src="../../assets/icon/设置.png" alt="">
 			<img v-if="type" @click="back()" src="../../assets/icon/返回图标.png" alt="">
@@ -7,7 +7,7 @@
 		<div class="title"><span>{{title}}</span></div>
 		<div>
 			<img v-if="!type" @click="Search()" class="search" src="../../assets/icon/搜索.png" alt="">
-			<img v-if="type=='b'" @click="share()" class="icon" src="../../assets/icon/分享.png" alt="">
+			<!-- <img v-if="type=='b'" @click="share()" class="icon" src="../../assets/icon/分享.png" alt=""> -->
 		</div>
 	</div>
 </template>
@@ -28,7 +28,10 @@ export default{
 		},
 		type(){
 			return this.$route.query.type
-		}
+		},
+		paths(){
+			return this.$route.path
+		},
 	},
 	methods:{
 		back(){
@@ -39,11 +42,6 @@ export default{
 		},
 		Search(){
 			this.$router.push('/search?title=搜索&type=a');
-		},
-		share(){
-			var id=this.$route.query.id;
-			var title=this.$route.query.title;
-			this.$router.push('/detial?id='+id+'&title='+title+'&type=b&share=" "');
 		}
 	}
 }
@@ -73,6 +71,7 @@ export default{
 			}
 		}
 		.title{
+			flex:3;
 			line-height:50px;
 			text-align:center;
 			color:white;

@@ -8,7 +8,7 @@
 				<div v-else>
 					<icon :name=item.icon :scale="3"></icon>
 				</div>
-				<span :class="{active:selectedIndex==item.name,'lastSelected':lastSelected==item.path,'title':title==item.title}">{{item.name}}</span>
+				<span :class="{active:selectedIndex==item.name,'title':title==item.title}">{{item.name}}</span>
 			</li>
 			<!-- <li @click="pushgo()">
 				<div>
@@ -65,7 +65,7 @@ export default{
 			this.$router.push(path);
 			this.selectedIndex=name;
 			console.log(this.selectedIndex);
-			this.$store.dispatch('select_Index',path);
+			//this.$store.dispatch('select_Index',path);
 		},
 		pushgo(){
 			window.location.href ='http://m.18touch.com/';
@@ -82,11 +82,11 @@ export default{
 		type(){
 			return this.$route.query.type
 		},
-		lastSelected(){
-			//console.log(this.$store.getters.GET_SELECTED_INDEX)
-			return this.$store.getters.GET_SELECTED_INDEX;
-			//console.log(this.$store);
-		}
+		// lastSelected(){
+		// 	//console.log(this.$store.getters.GET_SELECTED_INDEX)
+		// 	return this.$store.getters.GET_SELECTED_INDEX;
+		// 	//console.log(this.$store);
+		// }
 	}
 }
 </script>

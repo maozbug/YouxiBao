@@ -3,16 +3,16 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 const state={
-	selectedIndex:'/ranking/new?title=助手排行'
+	test:'/ranking/new?title=助手排行'
 }
 const getters={
 	GET_SELECTED_INDEX(state){
-		return state.selectedIndex;
+		return state.test;
 	}
 }
 const mutations={
 	SET_SELECTED_INDEX(state,content){
-		state.selectedIndex=content;
+		state.test=content;
 	}
 }
 const actions={

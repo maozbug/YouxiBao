@@ -125,7 +125,9 @@ var MessageApi='http://www.16p.com/1.1.5/json/news?type=%E5%B8%82%E5%9C%BA&page=
 // 		res.send(rs);
 // 	})
 // });
+
 app.get('/message',function(req,res){
+	//数据来自游戏行
 	//console.log(homeApi+'/helper_type');
 	request(MessageApi+req.query.page,function(error,response,body){
 		var rs = response.body;
@@ -133,8 +135,18 @@ app.get('/message',function(req,res){
 		res.send(rs);
 	})
 });
+app.get('/xinwen',function(req,res){
+	//数据来自游戏行
+	//console.log(homeApi+'/helper_type');
+	request('http://app02.vgtime.com:8080/vgtime-app/api/v2/homepage/listByTag.json',function(error,response,body){
+		var rs = response.body;
+		//console.log(rs);
+		res.send(rs);
+	})
+});
 
 app.get('/msgScroll',function(req,res){
+	//来自游戏时光数据。。。
 	//console.log(homeApi+'/helper_type');
 	request(MsgScrollApi+'/index/focusmap/list',function(error,response,body){
 		var rs = response.body;

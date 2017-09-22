@@ -36,10 +36,10 @@ export default new Router({
 	  		path:'/ranking',
 	    	component:Ranking,
 	    	children:[
-		    	{
-		    		path:'',
-		    		component:news
-		    	},
+		    	// {
+		    	// 	path:'',
+		    	// 	component:news
+		    	// },
 		    	{
 		    		path:'tuijian',
 		    		component:tuijian

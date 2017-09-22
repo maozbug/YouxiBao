@@ -1,11 +1,20 @@
 <template>
 	<div id="detail">
+		<div id="head">
+			<div>
+				<img  @click="back()" src="../../assets/icon/返回图标.png" alt="">
+			</div>
+			<div class="title"><span>{{title}}</span></div>
+			<div>
+				<img @click="share()" class="icon" src="../../assets/icon/分享.png" alt="">
+			</div>
+		</div>
 		<div>
 			<div class="top">
 				<img :src='detials.img2' alt="">
 				<ul>
 					<li>加入收藏</li>
-					<li>进入助手</li>
+					<li @click="Goin(detials.url)">进入助手</li>
 				</ul>
 			</div>
 			<div class="read">
@@ -35,10 +44,10 @@
 				</ul>
 			</div>	
 		</div>
-		<div class="shares" v-if="share" v-bind:style="{'height':H+'px','min-height':h+'px'}">
+		<div class="shares" v-if='show' v-bind:style="{'height':H+'px','min-height':h+'px'}">
 			
 		</div>
-		<div class="share" v-if="share">
+		<div class="share" v-if='show'>
 			<ul>
 				<li v-for="item in shareList">
 					<div>
@@ -77,7 +86,8 @@ export default{
 					title:'腾讯微博',
 					icon:'腾讯微博'
 				}
-			]
+			],
+			show:false
 		}
 	},
 	activated(){
@@ -108,14 +118,28 @@ export default{
 			this.W = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 		},
 		cancel(){
-			var id=this.$route.query.id;
-			var title=this.$route.query.title;
-			this.$router.push('/detial?id='+id+'&title='+title+'&type=b');
+			this.show=false;
+		},
+		back(){
+			this.$router.back(-1)
+		},
+		share(){
+			this.show=true;
+		},
+		Goin(url){
+			window.location.href = url;
 		}
 	},
 	computed:{
-		share(){
-			return this.$route.query.share
+		// share(){
+		// 	return this.$route.query.share
+		// },
+		title(){
+			if(this.$route.query.title){
+				return this.$route.query.title
+			}else{
+				 return '攻略宝'
+			}
 		}
 	}
 }
@@ -270,6 +294,38 @@ export default{
 				margin:10px auto;
 				opacity:1;
 			}
+		}
+	}
+	#head{
+		position:fixed;
+		top:0;
+		left:0;
+		right:0;
+		z-index:2;
+		height:50px;
+		background:#21A721;
+		width:100%;
+		display:flex;
+		div{
+			flex:1;
+			padding:10px;
+			img{
+				height:30px;
+			}
+			img.search{
+				float:right;
+			}
+			.icon{
+				float:right;
+			}
+		}
+		.title{
+			flex:3;
+			line-height:50px;
+			text-align:center;
+			color:white;
+			font-size:18px;
+			padding:0;
 		}
 	}
 </style>
